@@ -1,31 +1,74 @@
-var money = prompt("Ваш бюджет на месяц?");
-var time = prompt("Введите дату в формате YYYY-MM-DD");
-var budget_for_1_day;
+let money = Number( prompt("Ваш бюджет на месяц?", "") ),
+    time = prompt("Введите дату в формате YYYY-MM-DD", "");
 
-console.log(money, time, budget_for_1_day);
+// let i = 0; // раскоментировать чтобы использовать цикл while или do вместо for
 
-var appData = {
+let appData = {
     budget: money,
-    timeData: time,
-    expenses: {
-        answer_on_first_question: answer_on_second_question
-    },
+    expenses: {},
     optionalExpenses: {},
     income: [],
+    timeData: time,
     savings: false
+};
+
+/*
+do {
+    let a = prompt("Введите обязательную статью расходов в этом месяце", ""),
+        b = prompt("Во сколько обойдется?");
+
+        if ( typeof(a === "string") && typeof(a) != null && typeof(b) != null && a != '' && b != '' && a.length < 50) {
+            console.log("done");
+            appData.expenses[a] = b;
+        } else {
+            // console.log("sdfasf");
+        }
+        i++;
 }
+while (i < 2);
+*/
 
-console.log(appData.budget, appData.timeData, appData.expenses.answer_on_first_question, appData.expenses.optionalExpenses, appData.income, appData.savings);
+/*
+while (i < 2) {
+    let a = prompt("Введите обязательную статью расходов в этом месяце", ""),
+        b = prompt("Во сколько обойдется?");
 
-var answer_on_first_question = prompt("Введите обязательную статью расходов в этом месяце");
-appData.expenses = answer_on_first_question;
-console.log(appData.expenses);
+        if ( typeof(a === "string") && typeof(a) != null && typeof(b) != null && a != '' && b != '' && a.length < 50) {
+            console.log("done");
+            appData.expenses[a] = b;
+        } else {
+            // console.log("sdfasf");
+        }
+        i++;
+}
+*/
+    
 
-var answer_on_second_question = prompt("Во сколько обойдется?");
-appData.expenses.answer_on_first_question = answer_on_second_question;
-console.log(appData.expenses.answer_on_first_question);
 
-budget_for_1_day = money / 30;
-console.log(budget_for_1_day);
+for (let i = 0; i < 2; i++) {
+    let a = prompt("Введите обязательную статью расходов в этом месяце", ""),
+        b = prompt("Во сколько обойдется?");
 
-alert("Ваш бюджет на 1 день: " + budget_for_1_day);
+    if ( typeof(a === "string") && typeof(a) != null && typeof(b) != null && a != '' && b != '' && a.length < 50) {
+            console.log("done");
+            appData.expenses[a] = b;
+        } else {
+            // console.log("sdfasf");
+        }
+    }
+
+
+
+appData.moneyPerDay = appData.budget / 30;
+
+alert("Ваш бюджет на 1 день: " + appData.moneyPerDay);
+
+if (appData.moneyPerDay < 100) {
+    console.log("Минимальный уровень достатка");
+} else if (appData.moneyPerDay > 100 && appData.moneyPerDay < 2000) {
+    console.log("Средний уровень достатка");
+} else if (appData.moneyPerDay > 2000 ) {
+    console.log("Высокий уровень достатка");
+} else {
+    console.log("Ошибка");
+}
