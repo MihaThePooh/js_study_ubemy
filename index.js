@@ -1,3 +1,5 @@
+// Приложение по подсчету бюджета
+
 let money, time;
 
 function start () {
