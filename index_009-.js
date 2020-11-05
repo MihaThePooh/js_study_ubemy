@@ -1,7 +1,7 @@
 // урок 009 циклы
 
 
-var num = 50;
+// var num = 50;
 
 //цикл while
 /*
@@ -211,7 +211,57 @@ while (num < 55);
 
 //Чему равно 0 || "" || 2 || undefined || true || falsе ?
 
-console.log(0 || "" || 2 || undefined || true || falsе); // 2
+// console.log(0 || "" || 2 || undefined || true || falsе); // 2
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+// урок 010 про функции и замыкание
+/*
+return - это оператор который прерывает работу функции и возвращает результат выполнения этой функции в глобальную видимость, в видимость выше.
+если у функции отсутствует return, то вернется undefined.
+
+сравнение Function Expression и Function Declaration
+Function Expression это когда результат функции сразу записывается в переменную, а функция пишется без имени. это выполняется только тогда
+когда программа дойдет до этого места в коде и такую функцию нигде не вызвать еще раз
+var showFirstMessage = function (a, b) {
+    alert(a + b);
+}
+есть более короткая запись такого кода - это стрелочная функция
+var showFirstMessage = (a, b) => {a + b}
+
+Function Declaration это когда ты объявляешь функция, даешь ей имя. такую функцию ты можешь вызывать даже до того места в коде, где она декларируется
+function showFirstMessage (text) {
+    alert(text);
+}
+
+
+
+
+*/
+
+function createCounter() {
+    let counter = 0;
+   const myFunction = function() {
+     counter = counter + 1;
+     return counter;
+   }
+   };
+ const increment = createCounter();
+ const c1 = increment();
+ const c2 = increment();
+ const c3 = increment();
+    
+ console.log('example increment' + c1, c2, c3);
