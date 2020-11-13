@@ -65,15 +65,14 @@ let appData = {
         }
     },
     chooseIncome: function () {
-            let items = String(prompt("Что принесет дополнительный доход? (перечислите через зарпятую", ""));
+        var items;
 
-            if ( typeof(items === "string") && items != '' && items != null ) {
-                console.log("check pass");
-                appData.income = items.split(", ");
-                appData.income.push(prompt("Может что-то еще?"));
-                appData.income.sort();
-            }
-
+        while (isNaN(items) || items == "" || items == null) { // команда isNaN возвращает true в том случае, когда в нее попадают не цифры
+            items = String(prompt("Что принесет дополнительный доход? (перечислите через зарпятую", ""));
+            appData.income = items.split(", ");
+            appData.income.push(prompt("Может что-то еще?"));
+            appData.income.sort();
+        }
 
         var array = appData.income;
 
